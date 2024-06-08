@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Navbar'
 
 const AddStudent = () => {
+    const [data,setData]=useState(
+        {
+            "name" : " ",
+            "admissionno":" ",
+            "rollno" : " ",
+            "parentname" : " ",
+            
+        }
+    )
+    const inputHandler=(event)=>{
+      setData({ ...data,[event.target.name]: event.target.value})
+    }
+    const readValue=()=>{
+        console.log(data)
+    }
     return (
         <div>
             <Navbar/>
@@ -12,43 +27,23 @@ const AddStudent = () => {
                             <div className="row g-3">
                                 <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
                                     <label htmlFor="" className="form-label">NAME</label>
-                                    <input type="text" className="form-control" />
+                                    <input type="text" className="form-control"  name='name' value={data.name} onChange={inputHandler}/>
                                 </div>
                                 <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">ADMISSION NO</label>
-                                    <input type="text" className="form-control" />
+                                <label htmlFor="" className="form-label" >ADMISSION NO</label>
+                                    <input type="text" className="form-control" name='admissionno' value={data.admissionno} onChange={inputHandler}/>
                                 </div>
                                 <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">ROLL NO</label>
-                                    <input type="text" className="form-control" />
+                                <label htmlFor="" className="form-label" >ROLL NO</label>
+                                    <input type="text" className="form-control" name='rollno' value={data.rollno} onChange={inputHandler} />
                                 </div>
                                 <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">PARENT NAME</label>
-                                    <input type="text" className="form-control" />
-                                </div>
-                                <div className="col col-12 col-sm-12 col-md-12 col-xl-12 col-xxl-12">
-                                <label htmlFor="" className="form-label">COLLEGE NAME</label>
-                                <input type="text" className="form-control" />
-                                </div>
-                                <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">DATE_OF_BIRTH</label>
-                                <input type="date" name="" id="" className="form-control" />
-                                </div>
-                                <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">EMAIL ID</label>
-                                <input type="text" className="form-control" />
-                                </div>
-                                <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">PASSWORD</label>
-                                <input type="password" name="" id="" className="form-control" />
-                                </div>
-                                <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                <label htmlFor="" className="form-label">CONFIRM PASSWORD</label>
-                                <input type="password" name="" id="" className="form-control" />
+                                <label htmlFor="" className="form-label" >PARENT NAME</label>
+                                    <input type="text" className="form-control" name='parentname' value={data.parentname} onChange={inputHandler}/>
                                 </div>
                                 <center>
                                 <div className="col col-12 col-sm-6 col-md-6 col-xl-6 col-xxl-6">
-                                    <button class="btn btn-success">REGISTER</button>
+                                    <button class="btn btn-success" onClick={readValue}>REGISTER</button>
                                     </div>
                                     </center>
                                 
